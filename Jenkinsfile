@@ -3,6 +3,13 @@ pipeline {
 		environment {
 			NODE_VER = '8.1.0'
 		}
+
+		post {
+			success {
+
+			}
+		}
+
 		stages {
 
 			stage('Beginning') { agent any
@@ -26,7 +33,7 @@ pipeline {
 				}
 			}
 
-		stage('Deploy to stage?') { agent environment
+		stage('Deploy to stage?') { agent none
 			steps {
 					input 'Deploy to stage?'
 				}
