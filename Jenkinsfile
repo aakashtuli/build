@@ -26,9 +26,9 @@ pipeline {
 				}
 			}
 
-		stage('Deploy to stage?') {agent environment
-			step{
-				input 'Deploy to stage?' 
+		stage('Deploy to stage?') { agent environment
+			steps {
+					input 'Deploy to stage?'
 				}
 			}
 		}
