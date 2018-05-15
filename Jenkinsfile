@@ -6,19 +6,22 @@ pipeline {
 		stages {
 			stage('Beginning') { agent any
 				environment {
-					NEW_VAR = 'Howdy'
+					DEPLOY_VERSION = 'Stage'
 				}
 				steps {
 					echo 'Hello World'
 					sh 'echo $NODE_VER'
-					echo "${env.NEW_VAR}"
+					echo "${env.DEPLOY_VERSION}"
 				}
 			}
 
 			stage('Who Am I?') { agent any
 				steps {
-					echo "${env.NEW_VAR}"
-					sh 'host -t TXT pgp.michaelholley.us | awk -F \'"\' \'{print $2}\''
+					environment {
+						DEPLOY_VERSION = 'Prod'
+						}
+						echo "${env.DEPLOY_VERSION}"
+						sh 'host -t TXT pgp.michaelholley.us | awk -F \'"\' \'{print $2}\''
 				}
 			}
 		}
