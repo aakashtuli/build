@@ -7,7 +7,7 @@ pipeline {
 			stage('Beginning') { agent any
 				environment {
 					NEW_VAR = 'Howdy'
-				}				
+				}
 				steps {
 					echo 'Hello World'
 					sh 'echo $NODE_VER'
