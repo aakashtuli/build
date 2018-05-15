@@ -37,7 +37,7 @@ pipeline {
 				parallel {
 					stage('Build 1') { agent any
 						steps {
-							echo "It's ME!""
+							echo "It's ME!"
 						}
 					}
 
