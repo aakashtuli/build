@@ -1,3 +1,6 @@
+@Library('shared-library')
+import hello
+
 pipeline {
 		agent none
 		environment {
@@ -44,6 +47,7 @@ pipeline {
 					stage('Build 1') { agent any
 						steps {
 							echo "It's ME!"
+							hello()
 						}
 					}
 
