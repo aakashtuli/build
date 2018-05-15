@@ -4,6 +4,7 @@ pipeline {
 			NODE_VER = '8.1.0'
 		}
 		stages {
+
 			stage('Beginning') { agent any
 				environment {
 					DEPLOY_VERSION = 'Stage'
@@ -16,12 +17,18 @@ pipeline {
 			}
 
 			stage('Who Am I?') { agent any
+				environment {
+					DEPLOY_VERSION = 'Prod'
+				}
 				steps {
-					environment {
-						DEPLOY_VERSION = 'Prod'
-						}
 						echo "${env.DEPLOY_VERSION}"
 						sh 'host -t TXT pgp.michaelholley.us | awk -F \'"\' \'{print $2}\''
+				}
+			}
+
+		stage('Deploy to stage?') {agent environment
+			step{
+				input 'Deploy to stage?' 
 				}
 			}
 		}
