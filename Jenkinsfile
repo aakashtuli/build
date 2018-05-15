@@ -43,7 +43,7 @@ pipeline {
 
 					stage('Build 2') { agent any
 						steps {
-							echo 'Not it's me!'
+							echo "Not it's me!"
 						}
 					}
 				}
